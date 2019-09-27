@@ -1,11 +1,14 @@
 package com.openclassrooms.entrevoisins.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.Objects;
 
 /**
  * Model object representing a Neighbour
  */
-public class Neighbour {
+public class Neighbour implements Parcelable {
 
     /** Identifier */
     private Integer id;
@@ -39,7 +42,10 @@ public class Neighbour {
      * @param id
      * @param name
      * @param avatarUrl
+     * @param place
      * @param  phoneNumber
+     * @param facebook
+     * @param about
      */
     public Neighbour(Integer id, String name, String avatarUrl, String place, String phoneNumber, String facebook, String about) {
         this.id = id;
@@ -52,6 +58,59 @@ public class Neighbour {
         this.about = about;
         this.isFavorite = false;
     }
+
+
+
+    public Neighbour(Parcel in) {
+        if (in.readByte() == 0) {
+            id = null;
+        } else {
+            id = in.readInt();
+        }
+        name = in.readString();
+        avatarUrl = in.readString();
+        detailName = in.readString();
+        place = in.readString();
+        phoneNumber = in.readString();
+        facebook = in.readString();
+        about = in.readString();
+        isFavorite = in.readByte() != 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        if (id == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(id);
+        }
+        dest.writeString(name);
+        dest.writeString(avatarUrl);
+        dest.writeString(detailName);
+        dest.writeString(place);
+        dest.writeString(phoneNumber);
+        dest.writeString(facebook);
+        dest.writeString(about);
+        dest.writeByte((byte) (isFavorite ? 1 : 0));
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Neighbour> CREATOR = new Creator<Neighbour>() {
+        @Override
+        public Neighbour createFromParcel(Parcel in) {
+            return new Neighbour(in);
+        }
+
+        @Override
+        public Neighbour[] newArray(int size) {
+            return new Neighbour[size];
+        }
+    };
 
     public Integer getId() {
         return id;

@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.openclassrooms.entrevoisins.R;
+import com.openclassrooms.entrevoisins.events.DeleteFavoriteNeighbourEvent;
 import com.openclassrooms.entrevoisins.events.DeleteNeighbourEvent;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 
@@ -59,14 +60,11 @@ public class MyFavoriteNeighbourRecyclerViewAdapter extends RecyclerView.Adapter
         holder.itemView.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(mActivity, NeighbourDetail.class);
-                intent.putExtra("neighbourName", neighbour.getName());
-                intent.putExtra("neighbourAvatar", neighbour.getAvatarUrl());
-                intent.putExtra("detailName", neighbour.getName());
-                intent.putExtra("place", neighbour.getPlace());
-                intent.putExtra("neighbourPhone", neighbour.getPhoneNumber());
-                intent.putExtra("facebook", neighbour.getFacebook());
-                intent.putExtra("neighbourAbout", neighbour.getAbout());
+
+                intent.putExtra("neighbour", neighbour);
+
                 holder.itemView.getContext().startActivity(intent);
             }
         });
@@ -74,7 +72,7 @@ public class MyFavoriteNeighbourRecyclerViewAdapter extends RecyclerView.Adapter
         holder.mDeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EventBus.getDefault().post(new DeleteNeighbourEvent(neighbour));
+                EventBus.getDefault().post(new DeleteFavoriteNeighbourEvent(neighbour));
             }
         });
     }
@@ -89,7 +87,7 @@ public class MyFavoriteNeighbourRecyclerViewAdapter extends RecyclerView.Adapter
         public ImageView mNeighbourAvatar;
         @BindView(R.id.item_list_name)
         public TextView mNeighbourName;
-        @BindView(R.id.item_list_delete_button)
+        @BindView(R.id.item_favlist_delete_button)
         public ImageButton mDeleteButton;
 
         ViewHolder(View view) {
@@ -99,7 +97,6 @@ public class MyFavoriteNeighbourRecyclerViewAdapter extends RecyclerView.Adapter
 
         @Override
         public void onClick(View v) {
-
         }
     }
 }

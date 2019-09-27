@@ -55,15 +55,11 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         holder.itemView.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(mActivity, NeighbourDetail.class);
-                intent.putExtra("neighbourId", neighbour.getId());
-                intent.putExtra("neighbourName", neighbour.getName());
-                intent.putExtra("neighbourAvatar", neighbour.getAvatarUrl());
-                intent.putExtra("detailName", neighbour.getName());
-                intent.putExtra("place", neighbour.getPlace());
-                intent.putExtra("neighbourPhone", neighbour.getPhoneNumber());
-                intent.putExtra("facebook", neighbour.getFacebook());
-                intent.putExtra("neighbourAbout", neighbour.getAbout());
+
+                intent.putExtra("neighbour", neighbour);
+
                 holder.itemView.getContext().startActivity(intent);
             }
         });

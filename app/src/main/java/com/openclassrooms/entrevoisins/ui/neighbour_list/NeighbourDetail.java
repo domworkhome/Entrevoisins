@@ -44,11 +44,12 @@ public class NeighbourDetail extends AppCompatActivity{
     @BindView(R.id.activity_details)
     CoordinatorLayout mCoordinatorLayout;
 
-    Neighbour mNeighbour;
+    Neighbour neighbour;
     NeighbourApiService mNeighbourApiService;
     Intent mIntent;
     Integer neighbourId;
     String neighbourName;
+    String neighbourPic;
     String neighbourDetailName;
     String neighbourPlace;
     String neighbourPhone;
@@ -64,81 +65,75 @@ public class NeighbourDetail extends AppCompatActivity{
 
         ButterKnife.bind(this);
 
-        //Add toolbar and return arrow
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mNeighbourApiService = DI.getNeighbourApiService();
-        mIntent = getIntent();
-        mNeighbour = new Neighbour(mIntent.getIntExtra("neighbourId", 0), mIntent.getStringExtra("neighbourName"),
-                mIntent.getStringExtra("neighbourAvatar"), mIntent.getStringExtra("place"),
-                mIntent.getStringExtra("neighbourPhone"), mIntent.getStringExtra("facebook"), mIntent.getStringExtra("neighbourAbout"));
 
-                getIncomingIntent();
+        mIntent = getIntent();
+
+        neighbour = mIntent.getParcelableExtra("neighbour");
+
+                neighbourId = neighbour.getId();
+
+                neighbourName = neighbour.getName();
+
+                neighbourPic = neighbour.getAvatarUrl();
+
+                neighbourDetailName = neighbour.getName();
+
+                neighbourPlace = neighbour.getPlace();
+
+                neighbourPhone = neighbour.getPhoneNumber();
+
+                neighbourFacebook = neighbour.getFacebook();
+
+                neighbourAbout = neighbour.getAbout();
+
+                setNeighbourDetail(neighbourName, neighbourPic, neighbourDetailName, neighbourPlace, neighbourPhone, neighbourFacebook, neighbourAbout);
+
+
+        if (!mNeighbourApiService.getFavorites().contains(neighbour)) {
+            fab.setImageResource(R.drawable.ic_star_border_yellorange_24dp);
+        } else {
+            fab.setImageResource(R.drawable.ic_star_yellorange_24dp);
+        }
 
         fab.setOnClickListener(view -> {
 
-            if (!mNeighbourApiService.getFavorites().contains(mNeighbour)) {
-                mNeighbourApiService.addNeighbourToFavorite(mNeighbour);
+            if (!mNeighbourApiService.getFavorites().contains(neighbour)) {
+                mNeighbourApiService.addNeighbourToFavorite(neighbour);
                 fab.setImageResource(R.drawable.ic_star_yellorange_24dp);
-                System.out.println(" has been added to favorite list");
-                Snackbar.make(mCoordinatorLayout, mNeighbour.getName() + " has been added to favorite list", Snackbar.LENGTH_SHORT).show();
+                System.out.println(neighbour.getName() + " has been added to favorite list");
+                Snackbar.make(mCoordinatorLayout, neighbour.getName() + " has been added to favorite list", Snackbar.LENGTH_SHORT).show();
             } else {
                 fab.setImageResource(R.drawable.ic_star_border_yellorange_24dp);
-                mNeighbourApiService.deleteNeighbourFromFavorite(mNeighbour);
-                Snackbar.make(mCoordinatorLayout, mNeighbour.getName() + " is already in your favorite list", Snackbar.LENGTH_SHORT).show();
+                mNeighbourApiService.deleteNeighbourFromFavorite(neighbour);
+                Snackbar.make(mCoordinatorLayout, neighbour.getName() + " has been removed from your favorite list", Snackbar.LENGTH_SHORT).show();
             }
         });
-
-    }
-
-    private void getIncomingIntent(){
-
-        Log.d(TAG, "getIncomingIntent: checking for incoming intents.");
-
-        if(mIntent.hasExtra("neighbourName") && mIntent.hasExtra("neighbourAvatar") && mIntent.hasExtra("detailName") && mIntent.hasExtra("place") && mIntent.hasExtra("neighbourPhone") && mIntent.hasExtra("facebook") && mIntent.hasExtra("neighbourAbout")){
-            Log.d(TAG, "getIncomingIntent: found intent extras.");
-
-            neighbourId = mIntent.getIntExtra("neighbourId", 0);
-
-            neighbourName = mIntent.getStringExtra("neighbourName");
-
-            String neighbourPic = mIntent.getStringExtra("neighbourAvatar");
-
-            neighbourDetailName = mIntent.getStringExtra("detailName");
-
-            neighbourPlace = mIntent.getStringExtra("place");
-
-            neighbourPhone = mIntent.getStringExtra("neighbourPhone");
-
-            neighbourFacebook = mIntent.getStringExtra("facebook");
-
-            neighbourAbout = mIntent.getStringExtra("neighbourAbout");
-
-            setNeighbourDetail(neighbourName, neighbourPic, neighbourDetailName, neighbourPlace, neighbourPhone, neighbourFacebook, neighbourAbout);
-        }
 
     }
 
     private void setNeighbourDetail(String neighbourName, String neighbourPic, String neighbourDetailName, String neighbourPlace, String neighbourPhone, String neighbourFacebook, String neighbourAbout){
         Log.d(TAG, "setNeighbourDetail: setting the neighbour infos to widget.");
 
-            mneighbourName.setText(neighbourName);
+        mneighbourName.setText(neighbourName);
 
-            Glide.with(mNeighbourPic.getContext())
-                    .load(neighbourPic)
-                    .into(mNeighbourPic);
+        Glide.with(mNeighbourPic.getContext())
+                .load(neighbourPic)
+                .into(mNeighbourPic);
 
-            mneighbourDetailName.setText(neighbourDetailName);
+        mneighbourDetailName.setText(neighbourDetailName);
 
-            mneighbourPlace.setText(neighbourPlace);
+        mneighbourPlace.setText(neighbourPlace);
 
-            mneighbourPhone.setText(neighbourPhone);
+        mneighbourPhone.setText(neighbourPhone);
 
-            mneighbourFacebook.setText("www.facebook.fr/" + neighbourFacebook);
+        mneighbourFacebook.setText("www.facebook.fr/" + neighbourFacebook);
 
-            mneighbourAbout.setText(neighbourAbout);
-            mneighbourAbout.setMovementMethod(new ScrollingMovementMethod());
+        mneighbourAbout.setText(neighbourAbout);
+        mneighbourAbout.setMovementMethod(new ScrollingMovementMethod());
     }
 }
