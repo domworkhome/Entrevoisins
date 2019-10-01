@@ -37,7 +37,6 @@ public class ListNeighbourActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //System.out.println("Vous ne pouvez pas ajouter de voisin");
                 showAddItemDialog(ListNeighbourActivity.this);
             }
 
@@ -50,7 +49,7 @@ public class ListNeighbourActivity extends AppCompatActivity {
             }
         });
 
-        setSupportActionBar(mToolbar);
+        //setSupportActionBar(mToolbar);
         mPagerAdapter = new ListNeighbourPagerAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(mPagerAdapter);
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));

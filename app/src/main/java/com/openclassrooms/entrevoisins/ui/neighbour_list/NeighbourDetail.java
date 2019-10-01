@@ -106,11 +106,11 @@ public class NeighbourDetail extends AppCompatActivity{
                 mNeighbourApiService.addNeighbourToFavorite(neighbour);
                 fab.setImageResource(R.drawable.ic_star_yellorange_24dp);
                 System.out.println(neighbour.getName() + " has been added to favorite list");
-                Snackbar.make(mCoordinatorLayout, neighbour.getName() + " has been added to favorite list", Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(mCoordinatorLayout, getString(R.string.added_to_favorite_list, this.neighbour.getName()), Snackbar.LENGTH_SHORT).show();
             } else {
                 fab.setImageResource(R.drawable.ic_star_border_yellorange_24dp);
                 mNeighbourApiService.deleteNeighbourFromFavorite(neighbour);
-                Snackbar.make(mCoordinatorLayout, neighbour.getName() + " has been removed from your favorite list", Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(mCoordinatorLayout, getString(R.string.removed_from_favorite_list, this.neighbour.getName()), Snackbar.LENGTH_SHORT).show();
             }
         });
 

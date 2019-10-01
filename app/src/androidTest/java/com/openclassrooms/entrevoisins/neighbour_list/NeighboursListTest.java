@@ -22,8 +22,6 @@ import static android.support.test.espresso.matcher.ViewMatchers.hasMinimumChild
 import static com.openclassrooms.entrevoisins.utils.RecyclerViewItemCountAssertion.withItemCount;
 import static org.hamcrest.core.IsNull.notNullValue;
 
-
-
 /**
  * Test class for list of neighbours
  */
@@ -32,7 +30,6 @@ public class NeighboursListTest {
 
     // This is fixed
     private static int ITEMS_COUNT = 12;
-
     private ListNeighbourActivity mActivity;
 
     @Rule

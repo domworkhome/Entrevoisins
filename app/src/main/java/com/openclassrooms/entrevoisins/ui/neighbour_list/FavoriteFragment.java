@@ -91,4 +91,12 @@ public class FavoriteFragment extends Fragment{
         mApiService.deleteNeighbourFromFavorite(event.neighbour);
         initFavList();
     }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser) {
+            getFragmentManager().beginTransaction().detach(this).attach(this).commit();
+        }
+    }
 }

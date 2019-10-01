@@ -1,11 +1,8 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +14,6 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.events.DeleteFavoriteNeighbourEvent;
-import com.openclassrooms.entrevoisins.events.DeleteNeighbourEvent;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 
 import org.greenrobot.eventbus.EventBus;
@@ -51,11 +47,11 @@ public class MyFavoriteNeighbourRecyclerViewAdapter extends RecyclerView.Adapter
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         Neighbour neighbour = mFavoriteList.get(position);
-        holder.mNeighbourName.setText(neighbour.getName());
-        Glide.with(holder.mNeighbourAvatar.getContext())
+        holder.mFavNeighbourName.setText(neighbour.getName());
+        Glide.with(holder.mFavNeighbourAvatar.getContext())
                 .load(neighbour.getAvatarUrl())
                 .apply(RequestOptions.circleCropTransform())
-                .into(holder.mNeighbourAvatar);
+                .into(holder.mFavNeighbourAvatar);
 
         holder.itemView.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -69,7 +65,7 @@ public class MyFavoriteNeighbourRecyclerViewAdapter extends RecyclerView.Adapter
             }
         });
 
-        holder.mDeleteButton.setOnClickListener(new View.OnClickListener() {
+        holder.mFavDeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 EventBus.getDefault().post(new DeleteFavoriteNeighbourEvent(neighbour));
@@ -83,12 +79,12 @@ public class MyFavoriteNeighbourRecyclerViewAdapter extends RecyclerView.Adapter
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        @BindView(R.id.item_list_avatar)
-        public ImageView mNeighbourAvatar;
-        @BindView(R.id.item_list_name)
-        public TextView mNeighbourName;
+        @BindView(R.id.item_favlist_avatar)
+        public ImageView mFavNeighbourAvatar;
+        @BindView(R.id.item_favlist_name)
+        public TextView mFavNeighbourName;
         @BindView(R.id.item_favlist_delete_button)
-        public ImageButton mDeleteButton;
+        public ImageButton mFavDeleteButton;
 
         ViewHolder(View view) {
             super(view);

@@ -11,7 +11,6 @@ import org.junit.runners.JUnit4;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
@@ -44,6 +43,9 @@ public class NeighbourServiceTest {
         assertFalse(service.getNeighbours().contains(neighbourToDelete));
     }
 
+    /**
+     * assert that the clicked neighbour get to its detailed page
+     */
     @Test
     public void getNeighbourDetailWithSuccess() {
         Neighbour neighbourGetDetail = service.getNeighbours().get(0);
@@ -52,34 +54,30 @@ public class NeighbourServiceTest {
     }
 
     /**
+     * Assert that the neighbour is well added to favorites when fab clicked
+     */
+    @Test
+    public void addFavoriteWithSuccess(){
+        Neighbour neighbourAddedToFavorites = service.getNeighbours().get(0);
+        service.addNeighbourToFavorite(neighbourAddedToFavorites);
+        assertFalse(service.getFavorites().isEmpty());
+    }
+
+    /**
+     * assert that when the neighbour is already in favorites, he's well removed from favorites when fab clicked or when is deleted directly from favorites list
+     */
+    @Test
+    public void deleteFavoriteWithSuccess(){
+        Neighbour neighbourDeleteFromFavorites = service.getNeighbours().get(0);
+        service.deleteNeighbourFromFavorite(neighbourDeleteFromFavorites);
+        assertFalse(service.getFavorites().contains(neighbourDeleteFromFavorites));
+    }
+
+    /**
      * assert that the list is not null
      */
     @Test
     public void getFavoriteWithSuccess(){
         assertNotNull(service.getFavorites());
-    }
-
-    /**
-     * Assert that the add method is correct
-     */
-    @Test
-    public void addFavoriteWithSuccess(){
-        Neighbour neighbour = new Neighbour(1, "Caroline", "http://i.pravatar.cc/150?u=a042581f4e29026704d", "Saint Pierre du mont à 5km","+33 6 86 57 90 14", "caroline", "Bonjour! Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptibles de m'accompagner! J'aime les jeux de cartes tels la belote et le tarot.");
-        service.addNeighbourToFavorite(neighbour);
-        assertEquals(1, service.getFavorites().size());
-    }
-
-    /**
-     * assert that the neighbour is well remove from the list
-     */
-    @Test
-    public void deleteFavoriteWithSuccess(){
-        Neighbour neighbour = new Neighbour(1, "Caroline", "http://i.pravatar.cc/150?u=a042581f4e29026704d", "Saint Pierre du mont à 5km","+33 6 86 57 90 14", "caroline", "Bonjour! Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptibles de m'accompagner! J'aime les jeux de cartes tels la belote et le tarot.");
-        Neighbour neighbour2 = new Neighbour(2, "Jack", "http://i.pravatar.cc/150?u=a042581f4e29026704e", "Mont-de-Marsan","+33 7 54 97 82 14", "Jack", "Salut ! Fan de Harley Davidson et rocker dans l'âme je cherche des compagnons de route pour faire des virées folles !");
-        service.addNeighbourToFavorite(neighbour);
-        service.addNeighbourToFavorite(neighbour2);
-        service.deleteNeighbourFromFavorite(neighbour);
-        assertFalse(service.getFavorites().contains(neighbour));
-        assertTrue(service.getFavorites().contains(neighbour2));
     }
 }

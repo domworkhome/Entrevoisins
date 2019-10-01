@@ -61,7 +61,6 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
         for (Neighbour x : neighbours){
             if (x.isFavorite()){
                 favNeighbourList.add(x);
-                //System.out.println(favNeighbourList.indexOf(x));
             }
         }
         return favNeighbourList;
