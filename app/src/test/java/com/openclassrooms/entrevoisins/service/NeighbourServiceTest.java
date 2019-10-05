@@ -80,6 +80,11 @@ public class NeighbourServiceTest {
      */
     @Test
     public void getFavoriteWithSuccess() {
-        service.getFavorites();
+        List<Neighbour> expectedFavoritesNeighbours = DummyNeighbourGenerator.DUMMY_NEIGHBOURS;
+        for(int i=0; i < expectedFavoritesNeighbours.size(); i++) {
+            Neighbour neighbourAddedToFavorites = service.getNeighbours().get(i);
+            service.addNeighbourToFavorite(neighbourAddedToFavorites);
+        }
+        assertEquals(12, service.getFavorites().size());
     }
 }
