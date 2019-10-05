@@ -24,9 +24,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/item_list_avatar"
-        app:layout_constraintStart_toEndOf="@+id/item_list_avatar"
-        app:layout_constraintTop_toTopOf="@+id/item_list_avatar" />
+        app:layout_constraintBottom_toBottomOf="@+id/item_favlist_avatar"
+        app:layout_constraintStart_toEndOf="@+id/item_favlist_avatar"
+        app:layout_constraintTop_toTopOf="@+id/item_favlist_avatar" />
 
     <ImageButton
         android:id="@+id/item_favlist_delete_button"
@@ -34,9 +34,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:background="@null"
-        app:layout_constraintBottom_toBottomOf="@+id/item_list_name"
+        app:layout_constraintBottom_toBottomOf="@+id/item_favlist_name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/item_list_name"
+        app:layout_constraintTop_toTopOf="@+id/item_favlist_name"
         app:srcCompat="@drawable/ic_delete_white_24dp" />
 
 </android.support.constraint.ConstraintLayout>

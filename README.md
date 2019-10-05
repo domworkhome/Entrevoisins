@@ -1,46 +1,52 @@
-# Guide d'utilisation
+# Openclassrooms Project 3
 
-# Version Française
-## Nouvelle fonctionalité
-- Détail d'un voisin visible au click sur celui-ci
-- Possibilité d'ajout à une liste de favoris
-- Accès à la liste des favoris
+Goal : update Entrevoisins application with new features
 
-## Méthodologie d'installation
+## Actual features
+1. Get neighbours list
+2. Add a neighbour
+3. Delete a neighbour
 
-- Cliquer sur le bouton Download vert afin de télécharger le projet en zip
-    ou utiliser **git clone https://github.com/NelfDesign/OC_Entrevoisins_Projet3.git**.
-- Dézipper le fichier et coller le dans votre répertoire AndroidStudioProject
-    ou dans AndroidStudio choisissez File/Open et sélectionner le projet
+## New features
+1. Display detailed screen information when a user is clicked
+2. Allow add/remove this user to a favorite list
+3. Get access to favorite list
 
-## Lancement de l'application
-- Lancer le programme avec la commande run/run et choisissez app dans la fenêtre de choix
-- Vous pouvez jouer le programme sur un émulateur ou sur un appareil réel.
+## Requirements
+* Computer (Windows, Mac or Linux)
+* Android Studio
+* An android cellphone or emulator
 
-## bibliothèques utilisées
-- Library ButterKnife
-- Library Glide
-- Library EventBus
-- Library Gson
 
-# English Version
-## new functionality
-- Neighbour details canbe see on click on it
-- You can add a neighbour to favorite
-- You can see all your favorite
+## Setup the project in Android studio
+1. Download the project code, preferably using `git clone https://github.com/domworkhome/Entrevoisins.git`.
+2. In Android Studio, select *File* | *Open...*
+3. Select the project
+     
+     
+## Compile and execute the project in Android studio
+1. In Android Studio, select *Run* | *Run...*
+2. Choose `app` in *Run dialog*
+3. Select a device (*Available Virtual Devices* or *Connected Devices*)
+4. Select `OK` in *Select Deployment Target dialog*
 
-## Install instruction
-- Click on Green Download button to dowload it in zip
-   or you can clone it with **git clone https://github.com/NelfDesign/OC_Entrevoisins_Projet3.git**.
-- Unzip file and paste it in your AndroidStudioProject file
-  or in AndroidStudio choose File/Open and select the project
+     
+## Wiki
+* [Library ButterKnife](https://github.com/JakeWharton/butterknife)
+* [Library Glide](https://github.com/bumptech/glide)
+* [Library EventBus](https://github.com/greenrobot/EventBus)
 
- ## Run app
- - Run the app with Run/Run and choose app in selected view
- - You can run the app on a real device or an emulator
 
- ## Librairies
- - Library ButterKnife
- - Library Glide
- - Library EventBus
- - Library Gson
+
+## Troubleshooting
+
+### No device available during the compilation and execution steps 
+* If no device already available (*Available Virtual Devices* or *Connected Devices*),
+    * Either `Create a new virtual device`
+    * or connect and select your phone or tablet
+     
+     
+## Useful
+* [Download Android Studio](https://developer.android.com/studio)
+* [Create a new virtual device](https://developer.android.com/studio/run/managing-avds.html)
+* [Enable developer options and debugging](https://developer.android.com/studio/debug/dev-options.html#enable)

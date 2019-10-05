@@ -57,7 +57,7 @@ public class NeighbourServiceTest {
      * Assert that the neighbour is well added to favorites when fab clicked
      */
     @Test
-    public void addFavoriteWithSuccess(){
+    public void addFavoriteWithSuccess() {
         Neighbour neighbourAddedToFavorites = service.getNeighbours().get(0);
         service.addNeighbourToFavorite(neighbourAddedToFavorites);
         assertFalse(service.getFavorites().isEmpty());
@@ -67,17 +67,19 @@ public class NeighbourServiceTest {
      * assert that when the neighbour is already in favorites, he's well removed from favorites when fab clicked or when is deleted directly from favorites list
      */
     @Test
-    public void deleteFavoriteWithSuccess(){
+    public void deleteFavoriteWithSuccess() {
         Neighbour neighbourDeleteFromFavorites = service.getNeighbours().get(0);
         service.deleteNeighbourFromFavorite(neighbourDeleteFromFavorites);
         assertFalse(service.getFavorites().contains(neighbourDeleteFromFavorites));
     }
 
     /**
-     * assert that the list is not null
+     * assert that the favorite list is not null
      */
     @Test
-    public void getFavoriteWithSuccess(){
-        assertNotNull(service.getFavorites());
+    public void getFavoriteWithSuccess() {
+        Neighbour neighbourAddedToFavorites = service.getNeighbours().get(0);
+        service.addNeighbourToFavorite(neighbourAddedToFavorites);
+            assertNotNull(service.getFavorites());
     }
 }
