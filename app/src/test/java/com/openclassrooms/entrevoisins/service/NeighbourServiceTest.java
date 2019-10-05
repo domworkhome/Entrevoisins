@@ -11,6 +11,8 @@ import org.junit.runners.JUnit4;
 
 import java.util.List;
 
+import static android.content.Intent.getIntent;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
@@ -60,7 +62,7 @@ public class NeighbourServiceTest {
     public void addFavoriteWithSuccess() {
         Neighbour neighbourAddedToFavorites = service.getNeighbours().get(0);
         service.addNeighbourToFavorite(neighbourAddedToFavorites);
-        assertFalse(service.getFavorites().isEmpty());
+        assertTrue(service.getFavorites().contains(neighbourAddedToFavorites));
     }
 
     /**
@@ -78,8 +80,6 @@ public class NeighbourServiceTest {
      */
     @Test
     public void getFavoriteWithSuccess() {
-        Neighbour neighbourAddedToFavorites = service.getNeighbours().get(0);
-        service.addNeighbourToFavorite(neighbourAddedToFavorites);
-            assertNotNull(service.getFavorites());
+        service.getFavorites();
     }
 }

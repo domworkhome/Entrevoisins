@@ -15,13 +15,16 @@ Goal : update Entrevoisins application with new features
 ## Requirements
 * Computer (Windows, Mac or Linux)
 * Android Studio
+* [Download Android Studio](https://developer.android.com/studio)
 * An android cellphone or emulator
+* [Create a new virtual device](https://developer.android.com/studio/run/managing-avds.html)
+* [Enable developer options and debugging](https://developer.android.com/studio/debug/dev-options.html#enable)
 
 
 ## Setup the project in Android studio
-1. Download the project code, preferably using `git clone https://github.com/domworkhome/Entrevoisins.git`.
+1. Download the project code at `https://github.com/domworkhome/Entrevoisins` by clicking on `Clone or download` green button
 2. In Android Studio, select *File* | *Open...*
-3. Select the project
+3. Select the `Entrevoisins` project
      
      
 ## Compile and execute the project in Android studio
@@ -31,7 +34,7 @@ Goal : update Entrevoisins application with new features
 4. Select `OK` in *Select Deployment Target dialog*
 
      
-## Wiki
+## Libraries
 * [Library ButterKnife](https://github.com/JakeWharton/butterknife)
 * [Library Glide](https://github.com/bumptech/glide)
 * [Library EventBus](https://github.com/greenrobot/EventBus)
@@ -44,9 +47,3 @@ Goal : update Entrevoisins application with new features
 * If no device already available (*Available Virtual Devices* or *Connected Devices*),
     * Either `Create a new virtual device`
     * or connect and select your phone or tablet
-     
-     
-## Useful
-* [Download Android Studio](https://developer.android.com/studio)
-* [Create a new virtual device](https://developer.android.com/studio/run/managing-avds.html)
-* [Enable developer options and debugging](https://developer.android.com/studio/debug/dev-options.html#enable)
