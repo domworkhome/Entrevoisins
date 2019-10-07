@@ -23,8 +23,9 @@ Goal : update Entrevoisins application with new features
 
 ## Setup the project in Android studio
 1. Download the project code at `https://github.com/domworkhome/Entrevoisins` by clicking on `Clone or download` green button
-2. In Android Studio, select *File* | *Open...*
-3. Select the `Entrevoisins` project
+2. Unzip the downloaded project
+3. In Android Studio, select *File* | *Open...*
+4. Select the `Entrevoisins` project
      
      
 ## Compile and execute the project in Android studio
