@@ -39,8 +39,6 @@ Goal : update Entrevoisins application with new features
 * [Library Glide](https://github.com/bumptech/glide)
 * [Library EventBus](https://github.com/greenrobot/EventBus)
 
-
-
 ## Troubleshooting
 
 ### No device available during the compilation and execution steps 
