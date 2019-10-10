@@ -41,7 +41,6 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
     @Override
     public void addNeighbourToFavorite(Neighbour neighbour) {
         neighbours.get(neighbours.indexOf(neighbour)).setFavorite(true);
-        //System.out.println(neighbours.indexOf(neighbour)+1);
     }
 
     /**

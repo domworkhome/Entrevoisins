@@ -2,6 +2,8 @@ package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -21,6 +23,10 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Optional;
 
 public class FavoriteFragment extends Fragment{
 
@@ -52,6 +58,7 @@ public class FavoriteFragment extends Fragment{
         mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
         mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
         initFavList();
+
         return view;
     }
 
@@ -83,7 +90,7 @@ public class FavoriteFragment extends Fragment{
     }
 
     /**
-     * Fired if the user clicks on a delete button
+     * Delete selected neighbour from favorite list if the user clicks on a delete button
      * @param event
      */
     @Subscribe

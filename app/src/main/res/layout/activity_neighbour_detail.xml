@@ -7,6 +7,7 @@
     android:id="@+id/activity_details">
 
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/global"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/backgroundActivity">
@@ -18,7 +19,7 @@
             android:theme="@style/AppTheme.AppBarOverlay"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintEnd_toEndOf="parent" >
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
@@ -27,7 +28,8 @@
                 <ImageView
                     android:id="@+id/neighbourPic"
                     android:layout_width="match_parent"
-                    android:layout_height="250dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintDimensionRatio="1.5:1"
                     android:scaleType="centerCrop"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -62,10 +64,11 @@
         <android.support.v7.widget.CardView
             android:id="@+id/firstcardview"
             android:layout_width="match_parent"
-            android:layout_height="170dp"
+            android:layout_height="0dp"
             android:layout_marginStart="@dimen/activity_horizontal_margin"
             android:layout_marginEnd="@dimen/activity_horizontal_margin"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
+            app:layout_constraintDimensionRatio="2:1"
             app:layout_constraintTop_toBottomOf="@+id/appbar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" >
@@ -73,30 +76,6 @@
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-
-                <ImageView
-                    android:id="@+id/iconPlace"
-                    style="@style/iconDetail"
-                    android:layout_marginVertical="10dp"
-                    android:src="@drawable/ic_room_pink_24dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/separator" />
-
-                <ImageView
-                    android:id="@+id/iconPhone"
-                    style="@style/iconDetail"
-                    android:layout_marginVertical="10dp"
-                    android:src="@drawable/ic_phone_pink_24dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/neighbourPlace" />
-
-                <ImageView
-                    android:id="@+id/iconFacebook"
-                    style="@style/iconDetail"
-                    android:layout_marginVertical="10dp"
-                    android:src="@drawable/ic_socialnetwork_pink_24dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/neighbourPhone" />
 
                 <TextView
                     android:id="@+id/neighbourDetailName"
@@ -112,42 +91,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/neighbourPhone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Téléphone"
-                    android:textAlignment="textStart"
-                    android:textColor="@android:color/black"
-                    android:textSize="12sp"
-                    app:layout_constraintBottom_toBottomOf="@id/iconPhone"
-                    app:layout_constraintStart_toEndOf="@id/iconPhone"
-                    app:layout_constraintTop_toTopOf="@id/iconPhone" />
-
-                <TextView
-                    android:id="@+id/neighbourPlace"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Place"
-                    android:textAlignment="textStart"
-                    android:textColor="@android:color/black"
-                    android:textSize="12sp"
-                    app:layout_constraintBottom_toBottomOf="@id/iconPlace"
-                    app:layout_constraintStart_toEndOf="@id/iconPlace"
-                    app:layout_constraintTop_toTopOf="@id/iconPlace" />
-
-                <TextView
-                    android:id="@+id/neighbourFacebook"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="www.facebook.fr/"
-                    android:textAlignment="textStart"
-                    android:textColor="@android:color/black"
-                    android:textSize="12sp"
-                    app:layout_constraintBottom_toBottomOf="@id/iconFacebook"
-                    app:layout_constraintStart_toEndOf="@id/iconFacebook"
-                    app:layout_constraintTop_toTopOf="@id/iconFacebook" />
-
                 <View
                     android:id="@+id/separator"
                     android:layout_width="match_parent"
@@ -161,6 +104,66 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/neighbourDetailName" />
 
+                <ImageView
+                    android:id="@+id/iconPlace"
+                    style="@style/iconDetail"
+                    android:layout_marginVertical="10dp"
+                    android:src="@drawable/ic_room_pink_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/separator" />
+
+                <TextView
+                    android:id="@+id/neighbourPlace"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Place"
+                    android:textAlignment="textStart"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/iconPlace"
+                    app:layout_constraintStart_toEndOf="@id/iconPlace"
+                    app:layout_constraintTop_toTopOf="@id/iconPlace" />
+
+                <ImageView
+                    android:id="@+id/iconPhone"
+                    style="@style/iconDetail"
+                    android:layout_marginVertical="10dp"
+                    android:src="@drawable/ic_phone_pink_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/neighbourPlace" />
+
+                <TextView
+                    android:id="@+id/neighbourPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Téléphone"
+                    android:textAlignment="textStart"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/iconPhone"
+                    app:layout_constraintStart_toEndOf="@id/iconPhone"
+                    app:layout_constraintTop_toTopOf="@id/iconPhone" />
+
+                <ImageView
+                    android:id="@+id/iconFacebook"
+                    style="@style/iconDetail"
+                    android:layout_marginVertical="10dp"
+                    android:src="@drawable/ic_socialnetwork_pink_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/neighbourPhone" />
+
+                <TextView
+                    android:id="@+id/neighbourFacebook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="www.facebook.fr/"
+                    android:textAlignment="textStart"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/iconFacebook"
+                    app:layout_constraintStart_toEndOf="@id/iconFacebook"
+                    app:layout_constraintTop_toTopOf="@id/iconFacebook" />
+
             </android.support.constraint.ConstraintLayout>
 
         </android.support.v7.widget.CardView>
@@ -168,15 +171,18 @@
         <android.support.v7.widget.CardView
             android:id="@+id/secondcardview"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="0dp"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
             app:layout_constraintTop_toBottomOf="@id/firstcardview"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" >
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/global">
 
             <android.support.constraint.ConstraintLayout
+                android:id="@+id/aboutmeCardview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -211,8 +217,9 @@
             <TextView
                 android:id="@+id/Aboutme"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="0dp"
                 android:layout_marginTop="@dimen/text_margin"
+                android:layout_marginBottom="@dimen/text_margin"
                 android:layout_marginLeft="@dimen/text_margin"
                 android:layout_marginRight="@dimen/text_margin"
                 android:textSize="12dp"
@@ -220,7 +227,8 @@
                 android:scrollbars="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/AboutmeTitle"/>
+                app:layout_constraintTop_toBottomOf="@id/AboutmeTitle"
+                app:layout_constraintBottom_toBottomOf="@+id/aboutmeCardview"/>
 
             </android.support.constraint.ConstraintLayout>
 
