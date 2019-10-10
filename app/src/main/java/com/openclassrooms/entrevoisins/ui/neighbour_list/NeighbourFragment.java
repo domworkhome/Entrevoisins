@@ -87,6 +87,7 @@ public class NeighbourFragment extends Fragment {
         initList();
     }
 
+    //Refresh list when swiping/selecting tab
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);

@@ -40,6 +40,7 @@ public class ListNeighbourActivity extends AppCompatActivity {
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
         mTabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
+        // On click simulate add neighbour with AlertDialog delivering a message
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

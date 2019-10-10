@@ -14,22 +14,17 @@ import com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivity;
 import com.openclassrooms.entrevoisins.utils.DeleteViewAction;
 import com.openclassrooms.entrevoisins.utils.SelectViewAction;
 
-import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
-import static android.support.test.espresso.contrib.RecyclerViewActions.scrollToPosition;
 import static android.support.test.espresso.contrib.ViewPagerActions.scrollRight;
 import static android.support.test.espresso.matcher.ViewMatchers.assertThat;
 import static android.support.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
@@ -38,7 +33,6 @@ import static android.support.test.espresso.matcher.ViewMatchers.withContentDesc
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static com.openclassrooms.entrevoisins.utils.RecyclerViewItemCountAssertion.withItemCount;
-import static java.lang.Math.random;
 import static org.hamcrest.core.IsNull.notNullValue;
 
 /**

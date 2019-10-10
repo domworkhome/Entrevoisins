@@ -3,9 +3,12 @@ package com.openclassrooms.entrevoisins.utils;
 import android.support.test.espresso.UiController;
 import android.support.test.espresso.ViewAction;
 import android.view.View;
-import com.openclassrooms.entrevoisins.R;
+
 import org.hamcrest.Matcher;
 
+/**
+ * Allow click on a neighbour full line
+ */
 public class SelectViewAction implements ViewAction {
     @Override
     public Matcher<View> getConstraints() {

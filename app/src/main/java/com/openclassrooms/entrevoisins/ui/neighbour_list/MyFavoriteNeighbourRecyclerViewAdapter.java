@@ -53,6 +53,7 @@ public class MyFavoriteNeighbourRecyclerViewAdapter extends RecyclerView.Adapter
                 .apply(RequestOptions.circleCropTransform())
                 .into(holder.mFavNeighbourAvatar);
 
+        // On click put extras from selected neighbour model into NeighbourDetail.class and start NeighbourDetail activity
         holder.itemView.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -65,6 +66,7 @@ public class MyFavoriteNeighbourRecyclerViewAdapter extends RecyclerView.Adapter
             }
         });
 
+        // On click delete selected neighbour from favorite list
         holder.mFavDeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

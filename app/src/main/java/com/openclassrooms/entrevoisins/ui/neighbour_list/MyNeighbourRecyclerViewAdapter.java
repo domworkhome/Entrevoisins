@@ -52,6 +52,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
                 .apply(RequestOptions.circleCropTransform())
                 .into(holder.mNeighbourAvatar);
 
+        // On click put extras from selected neighbour into NeighbourDetail.class and start NeighbourDetail activity
         holder.itemView.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

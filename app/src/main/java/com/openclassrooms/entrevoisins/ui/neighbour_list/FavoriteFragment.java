@@ -99,6 +99,7 @@ public class FavoriteFragment extends Fragment{
         initFavList();
     }
 
+    //Refresh list when swiping/selecting tab
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);

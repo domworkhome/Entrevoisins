@@ -8,7 +8,6 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -56,8 +55,6 @@ public class NeighbourDetail extends AppCompatActivity{
     String neighbourFacebook;
     String neighbourAbout;
 
-    private static final String TAG = "NeighbourDetail";
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +70,7 @@ public class NeighbourDetail extends AppCompatActivity{
 
         mIntent = getIntent();
 
+        // get parcelable data from Neighbour model
         neighbour = mIntent.getParcelableExtra("neighbour");
 
                 neighbourId = neighbour.getId();
@@ -93,7 +91,7 @@ public class NeighbourDetail extends AppCompatActivity{
 
                 setNeighbourDetail(neighbourName, neighbourPic, neighbourDetailName, neighbourPlace, neighbourPhone, neighbourFacebook, neighbourAbout);
 
-
+        // Set the favorite FAB on/off on click and add/remove neighbour from favorites + snackbar message to inform user of which action is done by click
         if (!mNeighbourApiService.getFavorites().contains(neighbour)) {
             fab.setImageResource(R.drawable.ic_star_border_yellorange_24dp);
         } else {
@@ -116,8 +114,8 @@ public class NeighbourDetail extends AppCompatActivity{
 
     }
 
+    // Define each neighbour detail's layout component's content
     private void setNeighbourDetail(String neighbourName, String neighbourPic, String neighbourDetailName, String neighbourPlace, String neighbourPhone, String neighbourFacebook, String neighbourAbout){
-        Log.d(TAG, "setNeighbourDetail: setting the neighbour infos to widget.");
 
         mneighbourName.setText(neighbourName);
 
